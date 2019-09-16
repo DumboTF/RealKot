@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <com.ztf.realkot.mwidgets.ProView
+            android:id="@+id/pro_view"
+            app:inner_color="#228833"
+            app:outer_color="#aa00ff"
+            app:space_width="20dp"
+            app:text="全网购物狂欢日"
+            app:text_size="18sp"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    <com.ztf.realkot.mwidgets.RainView
+            android:layout_width="300dp"
+            android:layout_height="300dp"/>
+</LinearLayout>

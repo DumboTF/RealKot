@@ -1,0 +1,91 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'org.greenrobot.greendao'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.ztf.realkot"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+greendao {
+    schemaVersion 1 // 数据库版本号
+    daoPackage 'com.ztf.greendao' //greenDao 自动生成的代码保存的包名
+    targetGenDir 'src/main/java' //自动生成的代码存储的路径，默认是 build/generated/source/greendao.
+//    generateTests false //true的时候自动生成测试单元
+//    targetGenDirTests: 测试单元的生成目录默认是 src/androidTest/java
+}
+kapt {
+    generateStubs = true
+}
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation group: 'org.jetbrains.kotlinx', name: 'kotlinx-coroutines-core', version: '1.3.0'
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    //okhttp
+    implementation 'com.squareup.okhttp3:okhttp:4.1.0'
+    //retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.6.1'
+    implementation group: 'com.squareup.retrofit2', name: 'converter-gson', version: '2.6.1'
+    implementation group: 'com.squareup.retrofit2', name: 'adapter-rxjava2', version: '2.6.1'
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    //glide transfer
+    implementation 'jp.wasabeef:glide-transformations:1.0.6'
+    //greendao
+    implementation 'org.greenrobot:greendao:3.2.2'
+    implementation 'org.greenrobot:greendao-generator:3.2.2'
+    implementation 'net.zetetic:android-database-sqlcipher:4.2.0'
+    //rxjava
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.12'
+    implementation 'io.reactivex:rxjava:1.3.8'
+    //permission
+    implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5'
+    //logger
+    implementation 'com.orhanobut:logger:2.2.0'
+    //图表
+    //    implementation group: 'com.github.PhilJay', name: 'MPAndroidChart', version: 'v3.1.0'
+    //内存检测
+    implementation 'com.squareup.leakcanary:leakcanary-android:2.0-beta-3'
+    //事件 eventbus arouter
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    implementation 'com.alibaba:arouter-api:1.4.0'
+    //二维码
+    implementation 'com.google.zxing:core:3.4.0'
+    //圆角图
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
+    //管理生命周期
+    implementation 'com.trello.rxlifecycle2:rxlifecycle:2.2.2'
+    //缓存
+    implementation 'com.jakewharton:disklrucache:2.0.2'
+    //status bar
+    implementation 'com.jaeger.statusbarutil:library:1.5.1'
+    //
+}
